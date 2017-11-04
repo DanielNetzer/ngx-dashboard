@@ -1,0 +1,12 @@
+<div class="mediafy-app-container">
+  <!-- Top Tool Bar -->
+  <app-top-tb (toggleSideNav)="toggleSideNav()"></app-top-tb>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over">
+      <!-- sidenav content -->
+      <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <!-- primary content -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</div>
