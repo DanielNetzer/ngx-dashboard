@@ -2,8 +2,30 @@
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
   z-index: 1000;
   position: relative;
+  width: 100%;
+  display: flex;
 }
 
 .brand {
   padding: 0 14px;
+}
+
+.top-tb-center-section {
+  flex-grow: 1;
+  padding: 0 12px;
+  width: 100%;
+}
+
+.top-tb-left-section {
+  font-size: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+  height: 50%;
+  font-size: 16px;
+}
+
+mat-icon {
+  font-size: 20px;
 }

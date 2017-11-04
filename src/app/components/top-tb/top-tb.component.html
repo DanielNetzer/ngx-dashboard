@@ -1,7 +1,33 @@
 <mat-toolbar class="top-tb" color="primary">
-  <button mat-icon-button (click)="toggleSideNavEmitter()">
-    <mat-icon aria-label="Menu">menu</mat-icon>
-  </button>
+  <!-- Left section -->
+  <div class="top-tb-left-section">
+    <button mat-icon-button (click)="toggleSideNavEmitter()">
+      <mat-icon aria-label="Menu">menu</mat-icon>
+    </button>
 
-  <span class="brand">NGX-Dashboard</span>
+    <span class="brand">NGX-Dashboard</span>
+  </div>
+
+  <!-- Center Section -->
+  <div class="top-tb-center-section">
+    <form class="search-form">
+      <mat-form-field floatPlaceholder="never">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Search">
+      </mat-form-field>
+    </form>
+  </div>
+
+  <!-- Right Section -->
+  <div class="top-tb-right-section">
+    <button mat-icon-button>
+      <mat-icon aria-label="Notifications">notifications</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon aria-label="Mail">mail</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon aria-label="Settings" matTooltip="Settings">settings</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
