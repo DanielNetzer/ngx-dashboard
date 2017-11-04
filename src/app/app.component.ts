@@ -12,7 +12,7 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Mediafy';
+  title = 'NGX-Dashboard';
 
   @ViewChild('sidenav') sideNav: MatSidenav;
 

@@ -1,6 +1,6 @@
 {
-  "name": "mediafy",
-  "version": "0.0.0",
+  "name": "ngx-dashboard",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
