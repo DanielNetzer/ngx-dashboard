@@ -22,3 +22,15 @@ mat-sidenav {
 .mat-drawer-container {
   height: 100%;
 }
+
+:host {
+  display: flex;
+  overflow: hidden; // height: 95vh;
+  main {
+    position: relative;
+  }
+  /deep/ router-outlet~* {
+    position: absolute; // width: 100%;
+    // height: 100%;
+  }
+}

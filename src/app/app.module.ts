@@ -9,12 +9,14 @@ import { Components } from './components/components.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
+import { HomeComponent } from './containers/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Components,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

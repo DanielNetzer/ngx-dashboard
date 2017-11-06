@@ -6,7 +6,11 @@
       <!-- sidenav content -->
       <app-side-nav></app-side-nav>
     </mat-sidenav>
+
     <!-- primary content -->
-    <router-outlet></router-outlet>
+    <div [@fadeAnimation]="getRouterOutletState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+
   </mat-sidenav-container>
 </div>

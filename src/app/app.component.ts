@@ -4,12 +4,15 @@ import { MatSidenav } from '@angular/material';
 
 import { Router, RouterEvent } from '@angular/router';
 
+import { FadeAnimation } from './animations/fade.animations';
+
 import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [FadeAnimation]
 })
 export class AppComponent {
   title = 'NGX-Dashboard';
@@ -26,5 +29,9 @@ export class AppComponent {
 
   toggleSideNav(): void {
     this.sideNav.toggle();
+  }
+
+  public getRouterOutletState(outlet) {
+    return outlet.isActivated ? outlet.activatedRoute : '';
   }
 }

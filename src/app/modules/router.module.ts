@@ -1,23 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from '../containers/page-not-found/page-not-found.component';
+import { Containers } from '../containers/containers.module';
+
 
 const appRoutes: Routes = [
     // Add routes here, left this as examples.
     //
     // { path: 'crisis-center', component: CrisisListComponent },
     // { path: 'hero/:id', component: HeroDetailComponent },
-    {
-        path: 'home',
-        component: PageNotFoundComponent
-        // data: { title: 'Heroes List' }
-    },
-    {
-        path: '',
-        redirectTo: '/none',
-        pathMatch: 'full'
-    },
-    { path: '**', component: PageNotFoundComponent }
+    { path: '', component: Containers.HomeComponent },
+    { path: 'home', component: Containers.HomeComponent },
+    { path: '**', component: Containers.PageNotFoundComponent }
 ];
 
 @NgModule({
