@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 // Custom application modules
 import { AppRouterModule } from './modules/router.module';
+import { DragulaModule } from 'ng2-dragula';
 import { MaterialModule } from './modules/material.module';
 import { Components } from './components/components.module';
 
@@ -22,7 +23,8 @@ import { HomeComponent } from './containers/home/home.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRouterModule
+    AppRouterModule,
+    DragulaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

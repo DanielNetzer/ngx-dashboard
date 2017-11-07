@@ -1,10 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, HostBinding } from '@angular/core';
 
 import { MatSidenav } from '@angular/material';
 
 import { Router, RouterEvent } from '@angular/router';
 
-import { FadeAnimation } from './animations/fade.animations';
+import { FadeAnimation } from './animations/fade.animation';
 
 import 'rxjs/add/operator/filter';
 
