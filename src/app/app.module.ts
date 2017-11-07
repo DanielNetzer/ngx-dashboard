@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 
 // Custom application modules
 import { AppRouterModule } from './modules/router.module';
-import { DragulaModule } from 'ng2-dragula';
 import { MaterialModule } from './modules/material.module';
 import { Components } from './components/components.module';
+
+// Drag and Drop
+import { DndModule } from 'ng2-dnd';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
@@ -24,7 +26,7 @@ import { HomeComponent } from './containers/home/home.component';
     BrowserAnimationsModule,
     MaterialModule,
     AppRouterModule,
-    DragulaModule
+    DndModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,65 +1,18 @@
-<mat-grid-list cols="3" rowHeight="fit" gutterSize="2em">
+<mat-grid-list cols="3" rowHeight="2:1" class="list-group" dnd-sortable-container [sortableData]="baseCards">
 
-  <mat-grid-tile>
-    <mat-expansion-panel>
+  <mat-grid-tile *ngFor="let card of baseCards; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i" (onDragStart)="handleDragStart()"
+    (onDragEnd)="handleDragEnd()">
+    <mat-expansion-panel [disabled]="true" [expanded]="card.expanded">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Mislaka
+          {{card.title}}
         </mat-panel-title>
         <mat-panel-description>
-          fromDate - toDate
+          {{card.desc}}
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <p>This is the primary content of the panel.</p>
-
-    </mat-expansion-panel>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Registration
-        </mat-panel-title>
-        <mat-panel-description>
-          fromDate - toDate
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <p>This is the primary content of the panel.</p>
-
-    </mat-expansion-panel>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Invitations
-        </mat-panel-title>
-        <mat-panel-description>
-          fromDate - toDate
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <p>This is the primary content of the panel.</p>
-
-    </mat-expansion-panel>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Events
-        </mat-panel-title>
-        <mat-panel-description>
-          fromDate - toDate
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <p>This is the primary content of the panel.</p>
+      <p>{{card.more}}</p>
 
     </mat-expansion-panel>
   </mat-grid-tile>
