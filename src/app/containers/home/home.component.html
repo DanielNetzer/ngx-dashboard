@@ -1,9 +1,8 @@
-<mat-grid-list cols="3" rowHeight="2:1" class="list-group" dnd-sortable-container [sortableData]="baseCards">
+<mat-grid-list cols="3" gutterSize="10px" rowHeight="2:1" dnd-sortable-container [sortableData]="baseCards">
 
-  <mat-grid-tile *ngFor="let card of baseCards; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i" (onDragStart)="handleDragStart()"
-    (onDragEnd)="handleDragEnd()">
+  <mat-grid-tile *ngFor="let card of baseCards; let i = index">
     <mat-expansion-panel [disabled]="true" [expanded]="card.expanded">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header dnd-sortable [sortableIndex]="i" (onDragStart)="handleDragStart($event)" (onDragEnd)="handleDragEnd($event)">
         <mat-panel-title>
           {{card.title}}
         </mat-panel-title>
