@@ -1,11 +1,62 @@
-mat-expansion-panel {
-  width: 98%;
-}
-
 mat-expansion-panel-header {
   cursor: grab !important;
+  i {
+    padding-right: 1em;
+  }
 }
 
 mat-grid-tile {
   cursor: default;
+}
+
+@media all and (max-width: 500px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (max-width: 800px) and (min-width: 500px) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.home-grid {
+  display: grid;
+  grid-auto-flow: row dense;
+  /* extra styles */
+  grid-gap: 0.5rem;
+  padding-top: 5px;
+  .home-grid-row {
+    height: fit-content;
+  }
+  .panel-container {
+    width: 96%;
+    height: 96%;
+    justify-self: center;
+    margin: 1em 0;
+  }
+}
+
+// Dragula Settings
+.gu-mirror {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  .mat-expansion-panel-content {
+    height: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+.gu-transit {
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
 }

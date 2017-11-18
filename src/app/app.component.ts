@@ -20,11 +20,12 @@ export class AppComponent {
   @ViewChild('sidenav') sideNav: MatSidenav;
 
   constructor(private router: Router) {
-    router.events.filter(e => e instanceof RouterEvent).subscribe((e: RouterEvent) => {
-      this.sideNav.close();
-    }, (err) => {
-      console.log(err);
-    });
+    router.events.filter(e => e instanceof RouterEvent)
+      .subscribe((e: RouterEvent) => {
+        this.sideNav.close();
+      }, (err) => {
+        console.log(err);
+      });
   }
 
   toggleSideNav(): void {

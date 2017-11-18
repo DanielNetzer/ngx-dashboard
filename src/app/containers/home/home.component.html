@@ -1,18 +1,23 @@
-<mat-grid-list cols="3" gutterSize="10px" rowHeight="2:1" dnd-sortable-container [sortableData]="baseCards">
+<div class="home-grid">
+  <!-- Cards Columns -->
+  <div class="home-grid-row" *ngFor="let col of baseCardsColumns; let i = index;" [dragula]='"bag-one"' [dragulaModel]="baseCardsColumns[i]">
 
-  <mat-grid-tile *ngFor="let card of baseCards; let i = index">
-    <mat-expansion-panel [disabled]="true" [expanded]="card.expanded">
-      <mat-expansion-panel-header dnd-sortable [sortableIndex]="i" (onDragStart)="handleDragStart($event)" (onDragEnd)="handleDragEnd($event)">
-        <mat-panel-title>
-          {{card.title}}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{card.desc}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+    <!-- Drop Line -->
+    <div *ngIf="baseCardsColumns[i].length === 0 && cardsExpanded === false">&nbsp;</div>
 
-      <p>{{card.more}}</p>
+    <!-- Cards in Column -->
+    <div class="panel-container" *ngFor="let card of baseCardsColumns[i]; let j = index">
 
-    </mat-expansion-panel>
-  </mat-grid-tile>
-</mat-grid-list>
+      <mat-expansion-panel [ngClass]="Hovered" #panel [disabled]="true" [expanded]="card.expanded">
+        <mat-expansion-panel-header #cardHeader draggable (mouseover)="cardEmboss(panel)">
+          <mat-panel-title draggable>
+            <i mat-list-icon class="icon {{card.icon}}" draggable></i> {{card.title}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>{{card.more}}</p>
+
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>

@@ -1,81 +1,123 @@
-import { Component, OnInit, AfterViewInit, Inject, ViewChildren, QueryList } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
-import { SortableComponent } from 'ng2-dnd';
+import { Component, OnInit } from '@angular/core';
+
+import { MatExpansionPanel } from '@angular/material';
+
+import { DragulaService } from 'ng2-dragula';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
-  @ViewChildren(SortableComponent) sortables: QueryList<SortableComponent>;
-  private clone: HTMLElement;
-
+  cardsExpanded = true;
   // TODO: Create HomeCardModel
-  baseCards = [
-    {
+  baseCardsColumns = [
+    [{
       title: 'Registration',
-      desc: 'desc',
+      icon: 'ion-person',
       more: 'dsadsadsadsad',
-      expanded: true
+      expanded: true,
+      state: true,
+      dragged: false
     }, {
       title: 'Invitations',
-      desc: 'desc',
+      icon: 'ion-person-stalker',
       more: 'monytkuykghjhgjhgre',
-      expanded: true
+      expanded: true,
+      state: true,
+      dragged: false
     }, {
       title: 'Mislaka',
-      desc: 'desc',
+      icon: 'ion-card',
       more: 'mweqwewqeqewqore',
-      expanded: true
-    }, {
+      expanded: true,
+      state: true,
+      dragged: false
+    }],
+    [{
       title: 'Events',
-      desc: 'desc',
+      icon: 'ion-beer',
       more: 'moiuyiyiyre',
-      expanded: true
+      expanded: true,
+      state: true,
+      dragged: false
     }, {
       title: 'Partners',
-      desc: 'desc',
+      icon: 'ion-briefcase',
       more: 'morewqewqee',
-      expanded: true
-    }];
+      expanded: true,
+      state: true,
+      dragged: false
+    }],
+    [{
+      title: 'News',
+      icon: 'ion-ios-list',
+      more: 'morewqewqee',
+      expanded: true,
+      state: true,
+      dragged: false
+    }]
+  ];
 
-  constructor( @Inject(DOCUMENT) private document) { }
+  constructor(private dragulaService: DragulaService) {
+
+    this.dragulaService
+      .setOptions('bag-one', {
+        moves: this.isCardDraggable
+      });
+
+    dragulaService.drag.subscribe((value) => {
+      this.onDragDragula(value.slice(1));
+    });
+    dragulaService.dragend.subscribe((value) => {
+      this.onDragEnd(value.slice(1));
+    });
+
+    dragulaService.drop.subscribe((value) => {
+      this.onDragEnd(value.slice(1));
+    });
+  }
 
   ngOnInit() {
   }
 
-  ngAfterViewInit() {
-    const appRoot = this.document.getElementById('app-root');
-    this.sortables.forEach((ref) => {
-      ref._elem.addEventListener('dragstart', (event) => {
-        this.clone = <HTMLElement>event.srcElement.cloneNode(true);
-        // this.clone.classList.remove('dnd-sortable-drag');
-        this.clone.classList.add('dnd-drag-clone');
-        appRoot.appendChild(this.clone);
-        event.dataTransfer.setDragImage(this.clone, 0, 0);
-      }, false);
 
-      ref._elem.addEventListener('dragend', (event) => {
-        appRoot.removeChild(this.clone);
+  //#region Private Methods
+  private isCardDraggable(el, source, handle, sibling): boolean {
+    return handle.hasAttribute('draggable');
+  }
+
+  private onDragDragula(args): void {
+    const [e, el] = args;
+    // collapse all cards
+    this.baseCardsColumns.forEach(col => {
+      col.forEach(card => {
+        card.expanded = false;
       });
     });
+
+    this.cardsExpanded = false;
   }
 
-  handleDragStart(event) {
-    // Collapse all cards
-    this.baseCards.forEach(card => {
-      card.expanded = false;
+  private onDragEnd(args): void {
+    const [e, el] = args;
+    // expand all cards
+    this.baseCardsColumns.forEach(col => {
+      col.forEach(card => {
+        card.expanded = true;
+      });
     });
 
+    this.cardsExpanded = true;
   }
 
-  handleDragEnd(event) {
-    // Expend all cards
-    this.baseCards.forEach(card => {
-      card.expanded = true;
-    });
-  }
+  //#endregion
 
+  //#region Public Methods
+  public cardEmboss(panel: MatExpansionPanel): void {
+    console.log(panel);
+  }
+  //#endregion
 }

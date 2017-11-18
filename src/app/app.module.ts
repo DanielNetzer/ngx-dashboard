@@ -8,25 +8,27 @@ import { MaterialModule } from './modules/material.module';
 import { Components } from './components/components.module';
 
 // Drag and Drop
-import { DndModule } from 'ng2-dnd';
+import { DragulaModule } from 'ng2-dragula';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
 import { HomeComponent } from './containers/home/home.component';
+import { DragDelayLiftDirective } from './directives/drag-delay-lift/drag-delay-lift.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     Components,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    DragDelayLiftDirective
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRouterModule,
-    DndModule.forRoot()
+    DragulaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
