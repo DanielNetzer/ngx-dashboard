@@ -8,8 +8,8 @@
     <!-- Cards in Column -->
     <div class="panel-container" *ngFor="let card of baseCardsColumns[i]; let j = index">
 
-      <mat-expansion-panel [ngClass]="Hovered" #panel [disabled]="true" [expanded]="card.expanded">
-        <mat-expansion-panel-header #cardHeader draggable (mouseover)="cardEmboss(panel)">
+      <mat-expansion-panel [ngClass]="{ 'mat-elevation-z12': card.hovered }" [disabled]="true" [expanded]="card.expanded">
+        <mat-expansion-panel-header draggable (mouseenter)="cardEmboss(i, j)" (mouseleave)="cardEmboss(i, j)">
           <mat-panel-title draggable>
             <i mat-list-icon class="icon {{card.icon}}" draggable></i> {{card.title}}
           </mat-panel-title>

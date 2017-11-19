@@ -2,6 +2,7 @@
 
 @import '~@angular/material/theming';
 @import './_pallete.scss';
+@import './_animate.scss';
 @import '../../node_modules/dragula/dist/dragula.css';
 @include mat-core();
 $primary: mat-palette($mat-glow-blue, 600);

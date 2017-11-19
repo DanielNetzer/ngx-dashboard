@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 import { MatExpansionPanel } from '@angular/material';
 
@@ -20,21 +20,24 @@ export class HomeComponent implements OnInit {
       more: 'dsadsadsadsad',
       expanded: true,
       state: true,
-      dragged: false
+      dragged: false,
+      hovered: false
     }, {
       title: 'Invitations',
       icon: 'ion-person-stalker',
       more: 'monytkuykghjhgjhgre',
       expanded: true,
       state: true,
-      dragged: false
+      dragged: false,
+      hovered: false
     }, {
       title: 'Mislaka',
       icon: 'ion-card',
       more: 'mweqwewqeqewqore',
       expanded: true,
       state: true,
-      dragged: false
+      dragged: false,
+      hovered: false
     }],
     [{
       title: 'Events',
@@ -42,14 +45,16 @@ export class HomeComponent implements OnInit {
       more: 'moiuyiyiyre',
       expanded: true,
       state: true,
-      dragged: false
+      dragged: false,
+      hovered: false
     }, {
       title: 'Partners',
       icon: 'ion-briefcase',
       more: 'morewqewqee',
       expanded: true,
       state: true,
-      dragged: false
+      dragged: false,
+      hovered: false
     }],
     [{
       title: 'News',
@@ -57,11 +62,12 @@ export class HomeComponent implements OnInit {
       more: 'morewqewqee',
       expanded: true,
       state: true,
-      dragged: false
+      dragged: false,
+      hovered: false
     }]
   ];
 
-  constructor(private dragulaService: DragulaService) {
+  constructor(private dragulaService: DragulaService, private renderer: Renderer2) {
 
     this.dragulaService
       .setOptions('bag-one', {
@@ -116,8 +122,12 @@ export class HomeComponent implements OnInit {
   //#endregion
 
   //#region Public Methods
-  public cardEmboss(panel: MatExpansionPanel): void {
-    console.log(panel);
+  public cardEmboss(i: number, j: number): void {
+    if (this.baseCardsColumns[i][j].hovered) {
+      this.baseCardsColumns[i][j].hovered = false;
+    } else {
+      this.baseCardsColumns[i][j].hovered = true;
+    }
   }
   //#endregion
 }
