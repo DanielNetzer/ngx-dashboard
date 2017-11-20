@@ -1,23 +1,28 @@
-<div class="home-grid">
-  <!-- Cards Columns -->
-  <div class="home-grid-row" *ngFor="let col of baseCardsColumns; let i = index;" [dragula]='"bag-one"' [dragulaModel]="baseCardsColumns[i]">
+<mat-tab-group>
+  <mat-tab label="Dashboard">
+    <div class="home-grid">
+      <!-- Cards Columns -->
+      <div class="home-grid-row" *ngFor="let col of baseCardsColumns; let i = index;" [dragula]='"bag-one"' [dragulaModel]="baseCardsColumns[i]">
 
-    <!-- Drop Line -->
-    <div *ngIf="baseCardsColumns[i].length === 0 && cardsExpanded === false">&nbsp;</div>
+        <!-- Drop Line -->
+        <div *ngIf="baseCardsColumns[i].length === 0 && cardsExpanded === false">&nbsp;</div>
 
-    <!-- Cards in Column -->
-    <div class="panel-container" *ngFor="let card of baseCardsColumns[i]; let j = index">
+        <!-- Cards in Column -->
+        <div class="panel-container" *ngFor="let card of baseCardsColumns[i]; let j = index">
 
-      <mat-expansion-panel [ngClass]="{ 'mat-elevation-z12': card.hovered }" [disabled]="true" [expanded]="card.expanded">
-        <mat-expansion-panel-header draggable (mouseenter)="cardEmboss(i, j)" (mouseleave)="cardEmboss(i, j)">
-          <mat-panel-title draggable>
-            <i mat-list-icon class="icon {{card.icon}}" draggable></i> {{card.title}}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+          <mat-expansion-panel [ngClass]="{ 'mat-elevation-z12': card.hovered }" [disabled]="true" [expanded]="card.expanded">
+            <mat-expansion-panel-header draggable (mouseenter)="cardEmboss(i, j)" (mouseleave)="cardEmboss(i, j)">
+              <mat-panel-title draggable>
+                <i mat-list-icon class="icon {{card.icon}}" draggable></i> {{card.title}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
 
-        <p>{{card.more}}</p>
+            <p>{{card.more}}</p>
 
-      </mat-expansion-panel>
+          </mat-expansion-panel>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </mat-tab>
+  <mat-tab label="Activity">Content 2</mat-tab>
+</mat-tab-group>

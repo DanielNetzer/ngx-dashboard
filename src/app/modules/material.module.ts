@@ -13,11 +13,13 @@ import {
     MatListModule,
     MatInputModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTabsModule
 } from '@angular/material';
 
 @NgModule({
     imports: [
+        MatTabsModule,
         MatGridListModule,
         MatExpansionModule,
         MatButtonModule,
@@ -33,6 +35,7 @@ import {
         MatInputModule
     ],
     exports: [
+        MatTabsModule,
         MatGridListModule,
         MatExpansionModule,
         MatButtonModule,

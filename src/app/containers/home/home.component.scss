@@ -30,17 +30,14 @@ mat-grid-tile {
 .home-grid {
   display: grid;
   grid-auto-flow: row dense;
+  padding: 1em 1em;
   /* extra styles */
-  grid-gap: 0.5rem;
-  padding-top: 5px;
+  grid-gap: 0.5em; // padding-top: 5px;
   .home-grid-row {
     height: fit-content;
   }
   .panel-container {
-    width: 96%;
-    height: 96%;
-    justify-self: center;
-    margin: 1em 0;
+    margin: 0.5em 0.5em;
   }
 }
 
